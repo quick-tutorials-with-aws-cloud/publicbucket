@@ -1,4 +1,4 @@
-# Public Bucket
+# publicbucket
 
 This project creates:
 - Public bucket

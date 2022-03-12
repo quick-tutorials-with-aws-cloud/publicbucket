@@ -1,4 +1,4 @@
-# publicbucket
+# certificate
 
 This project creates:
-- Public bucket
+- Public certificate;

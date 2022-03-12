@@ -1,22 +1,26 @@
 AWSTemplateFormatVersion: 2010-09-09
 
-Description: Creates a public certificate
+Description: Creates a public bucket
 
 Parameters:
-  DomainName:
+  BucketName:
     Type: String
-    Default: "*.takugian.com"
+    Default: tg-public-bucket-123456
 
   Owner:
     Type: String
     Default: tg
 
 Resources:
-  Certificate:
-    Type: AWS::CertificateManager::Certificate
+  Bucket:
+    Type: AWS::S3::Bucket
     Properties:
-      DomainName: !Ref DomainName
-      ValidationMethod: DNS
+      BucketName: !Ref BucketName
+      AccessControl: PublicReadWrite
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        IgnorePublicAcls: false
+        BlockPublicPolicy: false
       Tags:
         - Key: Owner
           Value: !Ref Owner
